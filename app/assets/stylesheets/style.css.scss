@@ -7,35 +7,46 @@
     min-width: 300px;
   }
 }
-.voice {
-  a {text-decoration: none;}
-  &.active {
-    [class^="icon-"], [class*=" icon-"] {
-      color: gray;
-    }
-  }
-  &.active a:hover {
-    [class^="icon-"], [class*=" icon-"] {
-      color: darkorange;
-    }
-  }
-}
 .truncate {
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 600px;
   overflow: hidden;
 }
+
 table {
   .truncate a {color: #333;}
   .id {width: 20px;}
-  .voice, .action {
+  .vote, .action {
     white-space: nowrap;
     width: 50px;
+  }
+  .vote {
+    &.active {
+      [class^="icon-"], [class*=" icon-"] {
+        color: #333;
+      }
+    }
+    &.inactive {
+      [class^="icon-"], [class*=" icon-"] {
+        color: #777;
+      }
+    }
+    div {
+      float: left;
+      .btn-link {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        color: #333;
+      }
+      .btn-link:hover i {
+        color: darkorange;
+      }
+    }
   }
 }
 .article {
   .actions {float: left;}
   .info {float: right;}
-  
 }

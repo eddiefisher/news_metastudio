@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 gem 'unicorn'
 

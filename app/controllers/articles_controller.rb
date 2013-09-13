@@ -1,10 +1,14 @@
 class ArticlesController < ApplicationController
-  # before_action :set_article, only: [:show]
+  before_action :set_article, only: [:edit, :update]
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   respond_to :html
   
   def index
-    @articles = Article.all
+    @articles = Article.index_query(params[:page])
+  end
+
+  def user_index
+    @articles = current_user.articles.index_query(params[:page])
   end
 
   def show
@@ -16,7 +20,6 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = current_user.articles.find(params[:id])
   end
 
   def create
@@ -30,8 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    article = current_user.articles.find(params[:id])
-    if article.update(article_params)
+    if @article.update(article_params)
       redirect_to article, notice: 'Article was successfully updated.'
     else
       render action: 'edit'
@@ -44,12 +46,11 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  
     def set_article
-      @article = Article.find(params[:id])
+      @article = current_user.articles.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :content, :user_id)
     end

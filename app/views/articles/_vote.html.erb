@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+
+  <% unless article.is_vote? %>
+    <span class="vote inactive">
+      <%= fa_icon('star') %> (<%= article.votes_count || 0 %>)
+    </span>
+  <% else %>
+    <%= form_for :vote, url: votes_path, remote: true, html: { role: 'form' } do |f| %>
+      <%= f.hidden_field :user_id, value: article.user_id %>
+      <%= f.hidden_field :article_id, value: article.id %>
+      <span class="vote active">
+        <%= button_to nil, class: 'btn-link' do %>
+          <%= fa_icon('star') %> (<%= article.votes_count || 0 %>)
+        <% end %>
+      </span>
+    <% end %>
+  <% end %>
+<% else %>
+  <span class="vote inactive">
+    <%= fa_icon('star') %> (<%= article.votes_count || 0 %>)
+  </span>
+<% end %>

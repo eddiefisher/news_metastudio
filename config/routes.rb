@@ -1,6 +1,9 @@
 NewsMetastudio::Application.routes.draw do
-  resources :articles
-
+  resources :articles do
+    get 'user_index', on: :collection
+  end
+  resources :votes
+  
   devise_for :users
   
   root "articles#index"

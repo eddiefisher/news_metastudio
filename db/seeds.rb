@@ -23,7 +23,7 @@ end
 
 
 print 'Drop Users...'
-User.unscoped.destroy_all
+User.unscoped.delete_all
 User.reset_autoincrement
 puts 'done.'
 
@@ -35,7 +35,7 @@ User.create([
 puts 'done.'
 
 print 'Drop Articles...'
-Article.unscoped.destroy_all
+Article.unscoped.delete_all
 Article.reset_autoincrement
 puts 'done.'
 
@@ -47,4 +47,9 @@ print 'Create Articles...'
       user_id: [2,3].sample
   )
 end
+puts 'done.'
+
+print 'Drop Votes...'
+Vote.unscoped.delete_all
+Vote.reset_autoincrement
 puts 'done.'
