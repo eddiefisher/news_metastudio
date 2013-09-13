@@ -1,0 +1,41 @@
+.mtop {
+  margin-top: 60px;
+}
+.navigation_user {
+  .login-menu.dropdown-menu {
+    padding: 15px;
+    min-width: 300px;
+  }
+}
+.voice {
+  a {text-decoration: none;}
+  &.active {
+    [class^="icon-"], [class*=" icon-"] {
+      color: gray;
+    }
+  }
+  &.active a:hover {
+    [class^="icon-"], [class*=" icon-"] {
+      color: darkorange;
+    }
+  }
+}
+.truncate {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 600px;
+  overflow: hidden;
+}
+table {
+  .truncate a {color: #333;}
+  .id {width: 20px;}
+  .voice, .action {
+    white-space: nowrap;
+    width: 50px;
+  }
+}
+.article {
+  .actions {float: left;}
+  .info {float: right;}
+  
+}
