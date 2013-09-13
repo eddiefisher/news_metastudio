@@ -11,7 +11,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td class="vote">
+        <td class="vote" id="vote_<%= article.id %>">
           <%= render 'vote', article: article %>
         </td>
         <td class="truncate"><%= link_to article.title, article %></td>

@@ -1,18 +1,19 @@
 class VotesController < ApplicationController
   before_filter :authenticate_user!
-  respond_to :html
   
   def create
     @vote = Vote.new(vote_params)
-
-    if count_voice?
-      if @vote.save
-        render js: 'alert("Tnk for you vote")'
+    respond_to do |format|
+      if count_voice?
+        if @vote.save
+          @article = Article.find(vote_params[:article_id])
+          format.js {@status = 'success'}
+        else
+          format.js {@status = 'error'}
+        end
       else
-        render js: 'alert("error =(")'
+        format.js {@status = 'noaccess'}
       end
-    else
-      render js: 'alert("You can only vote once")'
     end
   end
   

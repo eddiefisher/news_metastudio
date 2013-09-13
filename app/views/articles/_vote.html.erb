@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
 
-  <% unless article.is_vote? %>
+  <% unless article.is_vote?(current_user) %>
     <span class="vote inactive">
       <%= fa_icon('star') %> (<%= article.votes_count || 0 %>)
     </span>
@@ -15,6 +15,7 @@
       </span>
     <% end %>
   <% end %>
+  
 <% else %>
   <span class="vote inactive">
     <%= fa_icon('star') %> (<%= article.votes_count || 0 %>)

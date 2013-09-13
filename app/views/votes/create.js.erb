@@ -1,0 +1,8 @@
+<% if @status == 'success' %>
+  alert("Tnk for you vote")
+  $('#vote_<%= @vote.article_id %>').html("<%=j render 'articles/vote', article: @article %>")
+<% elsif @status == 'error' %>
+  alert("some error")
+<% elsif @status == 'noaccess' %>
+  alert("You can only vote once")
+<% end %>
