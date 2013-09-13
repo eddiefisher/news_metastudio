@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to article, notice: 'Article was successfully updated.'
+      redirect_to @article, notice: 'Article was successfully updated.'
     else
       render action: 'edit'
     end

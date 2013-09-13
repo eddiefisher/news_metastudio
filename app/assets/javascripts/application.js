@@ -14,7 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap/bootstrap
+//= require redactor/redactor
 //= require_tree .
 
-$(".alert").alert()
-window.setTimeout(function() { $(".alert").alert('close'); }, 2000);
+$(document).ready(function() {
+  $(".alert").alert()
+  window.setTimeout(function() { $(".alert").alert('close'); }, 2000);
+  
+  $('.redactor').redactor()
+});

@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require bootstrap/bootstrap-theme
+ *= require redactor/redactor
  *= require font-awesome
  *= require_tree .
  */
