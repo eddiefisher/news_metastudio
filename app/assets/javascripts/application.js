@@ -17,3 +17,4 @@
 //= require_tree .
 
 $(".alert").alert()
+window.setTimeout(function() { $(".alert").alert('close'); }, 1000);

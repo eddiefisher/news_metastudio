@@ -13,3 +13,15 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'font-awesome-rails'
 gem 'devise'
+
+gem 'unicorn'
+
+group :development, :test do
+  gem 'faker'
+end
+
+group :development do
+  gem 'capistrano', :require => false
+  gem 'rvm-capistrano', :require => false
+  gem 'capistrano_colors', :require => false
+end
