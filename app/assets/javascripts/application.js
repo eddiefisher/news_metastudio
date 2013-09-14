@@ -20,6 +20,8 @@
 $(document).ready(function() {
   $(".alert").alert()
   window.setTimeout(function() { $(".alert").alert('close'); }, 2000);
-  
   $('.redactor').redactor()
 });
+$(document).on('page:load', function () {
+  $('.redactor').redactor()
+})
