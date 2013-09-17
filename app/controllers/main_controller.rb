@@ -1,5 +1,7 @@
 class MainController < ApplicationController
-  def index
-    @articles = Article.all
+  def about
+  end
+  
+  def contact
   end
 end

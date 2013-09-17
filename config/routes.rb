@@ -4,6 +4,9 @@ NewsMetastudio::Application.routes.draw do
   end
   resources :votes
   
+  get '/about' => 'main#about'
+  get '/contact' => 'main#contact'
+  
   devise_for :users
   
   root "articles#index"
